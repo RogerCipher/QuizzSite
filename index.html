@@ -1,0 +1,102 @@
+<head>
+    <!-- character codes -->
+    <meta charset="utf-8"/>
+    <!-- Titulo do site -->
+    <title>Quizz 9º ano</title>
+    <!-- fazer a imagem da resposta pequena-->
+    <style>
+        #imagemResposta { max-width: 15%; min-width: 100px; margin-top: 2px; margin-bottom: 5px;}
+        #imagemBanner { max-width: 100%; margin-top: 5px; margin-bottom: 5px;}
+        #simboloQuizz { max-width: 30%; min-width: 200px; margin-top: 5px; margin-bottom: 5px;}
+        #pergunta {margin-bottom: 0;}
+        .row-sm-2 {margin-bottom: 0; margin-top: 0;}
+        .btn {margin-top: 5px; margin-bottom: 0px;}
+        #divDebbuger {min-height: 1000px;}
+    </style>
+    <!-- Incluir bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body style="background-color: #e4ceeb;" class="border-0" onload="perguntarComeçar()">
+
+    <!-- elemento para mostrar imagem com o banner -->
+    <div class="text-center container">
+        <img id ="imagemBanner" src="imagens/banner.png" class="img-responsive col-sm-1">
+    </div>
+    <!-- butao para começar o quizz -->
+    <div class="text-center">
+        <button type="button" id="comecar" class="btn btn-outline-secondary text-center" onclick="carregar_questoes()">Comecar Quizz</button>
+    </div>
+
+    <!-- este div server somente para quando a pagina ta a dar load nao se ver os elementos abaixo do div-->
+    <div id="divDebbuger">
+
+    </div>
+
+
+    <!-- barra de cima-->
+    <nav class="navbar" style="background-color: #191919;" id="navigation">
+        <!-- titulo da barra-->
+        <a class="navbar-brand" href="#">
+            <img src="imagens/logo.png" width="90" height="90" alt="">
+        </a>
+        <!-- numero da questao actual-->
+        <p class="text" style="color: #00ffff;">Número da questão: <span id="n_questao_actual"></span>/<span id="questoes_totais"></span></p>
+    </nav>
+    
+
+
+    <!-- display da pergunta -->
+    <div class="text-center" id="cima">
+        <!-- pergunta -->
+        <div class="alert text-center" style="background-color: #cb6ce6;" id="pergunta" role="alert"></div>
+    </div>
+        <!-- elemento para mostrar se tem a resposta certa ou errada -->
+    <div class="text-center container" id="containerImagemResposta">
+        <img id ="imagemResposta" src="imagens/certo.png" class="img-responsive col-sm-1">
+    </div>
+
+
+    <!-- respostas associadas -->
+    <div class="container xm" id="opcoes">
+        <div class="text-center "> 
+            <div class="card-group">
+                <button type="button" id="opcao1" class="btn btn-outline-secondary text-center col ml-6" onclick="resposta(0)"></button>
+                <div class="container col-sm-1"></div>
+                <button type="button" id="opcao2" class="btn btn-outline-secondary text-center col mr-6" onclick="resposta(1)"></button>
+            </div>
+            <div class="card-group">    
+                <button type="button" id="opcao3" class="btn btn-outline-secondary text-center col ml-6" onclick="resposta(2)"></button>
+                <div class="container col-sm-1"></div>
+                <button type="button" id="opcao4" class="btn btn-outline-secondary text-center col ml-6" onclick="resposta(3)"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <p></p>
+    </div>
+    <!-- butao para proxima pergunta -->
+    <div class="text-center">
+        <button type="button" id="proxima" class="btn btn-outline-secondary text-center" onclick="proximaPergunta()">Continuar</button>
+    </div>
+    <!-- butao para perguntar se quer ver o resultado final-->
+    <div class="text-center">
+        <button type="button" id="resultado" class="btn btn-outline-secondary text-center" onclick="apresentarResultados()">Ver Resultados</button>
+    </div>
+    <!-- imagem com o simbolo do quizz-->
+    <div class="text-center container">
+        <img id ="simboloQuizz" src="imagens/simbolo.png" class="img-responsive col-sm-1">
+    </div>
+    <!-- butao para recomeçar perguntas -->
+    <div class="text-center">
+        <button type="button" id="recomecar" class="btn btn-outline-secondary text-center" onclick="window.location.reload(true);">Recomeçar Quizz</button>
+    </div>
+    <!-- incluir javascript source -->
+    <script type="text/javascript" src="script.js"></script>
+
+    <!-- incluir funcionalidades-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
